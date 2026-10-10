@@ -55,6 +55,7 @@ while true; do
 
 	case "$action" in
 		1)
+			echo "$selected_name">> .whitelist
 			mv "$selected_path" "$DIR/"
 			echo "Restored $selected_name to $DIR."
 			;;

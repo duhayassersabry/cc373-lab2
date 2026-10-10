@@ -48,3 +48,8 @@ chmod +x antivirusd.sh restore.sh
 The detection rules are hardcoded inside `antivirusd.sh`:
 - Flagged extensions: `.exe`, `.bat`, `.vbs`, `.scr`, `.ps1`
 - Flagged keywords: `virus`, `trojan`, `malware`, `worm`, `ransomware` (checked case-insensitively using `grep -i`)
+
+## Bonus 2: Whitelist
+
+- When a file is restored via `restore.sh`, its name is appended to `.whitelist`.
+- Before checking a file, `antivirusd.sh` checks `.whitelist` and skips any file listed there so it is not quarantined again.

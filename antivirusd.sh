@@ -16,6 +16,10 @@ scan_directory(){
 		filename=$(basename "$filepath")
 		is_malicious=false
 		
+		if [ -f .whitelist ] && grep -Fxq "$filename" .whitelist; then
+			continue
+		fi
+		
 		for ext in "${FLAGGED_EXTS[@]}"; do
 			if [[ "$filename" == *.${ext} ]]; then
 				is_malicious=true
